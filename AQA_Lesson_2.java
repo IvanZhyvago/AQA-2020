@@ -108,6 +108,7 @@ public class AQA_Lesson_2 {
         for (int i = 0; i < 10; i++) {
             arrayTen[i] = 0 + (int) (Math.random() * 100);
             System.out.println(arrayTen[i]);
+            
 //4) Create an array of 10 integers.
 // Find the square root of each element and put the to result array.
 // Print the result array to the console.
@@ -131,8 +132,7 @@ public class AQA_Lesson_2 {
         figuresPrint('c');
         figuresPrint('d');
         System.out.println ();
-
-
+        
 //7) Create an array of 10 integers.
 // Calculate and print the sum of all its elements except the first one and the last one.
         System.out.println("Home Task #2 part #7:");
@@ -170,6 +170,5 @@ public class AQA_Lesson_2 {
         Arrays.sort(array20);
         System.out.printf("After Sorting : %s",
                 Arrays.toString(array20));
-
     }
 }
