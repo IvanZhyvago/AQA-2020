@@ -130,6 +130,7 @@ public class AQA_Lesson_2 {
         figuresPrint('b');
         figuresPrint('c');
         figuresPrint('d');
+        System.out.println ();
 
 
 //7) Create an array of 10 integers.
@@ -145,11 +146,14 @@ public class AQA_Lesson_2 {
 //8) Print all the numbers from 1 to 100 that are divisible by 3 or divisible by 5, but not divisible by 2.
         System.out.println("Home Task #2 part #8:");
         for (int i=1;i<=100;i++){
-            if (0 == (i%3)){
-                System.out.println ("divisible by 3 --> " + i);
+            if ( (0 == (i%3)) && (0 == (i%5)) ){
+                System.out.println ("divisible by 3 and 5 --> " + i);
             }
             else if (0 == (i%5)) {
                 System.out.println ("divisible by 5 --> " + i);
+            }
+            else if (0 == (i%3)) {
+                System.out.println ("divisible by 3 --> " + i);
             }
         }
 //9) Create an array of any length and fill it with random integers.
@@ -157,10 +161,10 @@ public class AQA_Lesson_2 {
 // You can use any sorting algorithm you want. Do not use build-in methods to sort the array.
         System.out.println("Home Task #2 part #9:");
         int[] array20 = new int[20];
-        System.out.print("Befor Sorting:");
+        System.out.print("Before Sorting: ");
         for (int i = 0; i < 20; i++) {
             array20[i] = (int) (Math.random() * 100);
-            System.out.print(array20[i] + " ");
+            System.out.print(array20[i] + ", ");
         }
         System.out.println("");
         Arrays.sort(array20);
