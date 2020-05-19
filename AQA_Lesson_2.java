@@ -80,6 +80,11 @@ public class AQA_Lesson_2 {
             System.out.println ("Avalible value: a,b,c,d");
         }
     };
+    public static void swap(int[] array, int ind1, int ind2) {
+        int tmp = array[ind1];
+        array[ind1] = array[ind2];
+        array[ind2] = tmp;
+    }
 
     //1) Create a simple program, that creates two integers and print the result of calculation of their addition,
 // substruction, multiplication and division.
@@ -145,15 +150,10 @@ public class AQA_Lesson_2 {
 
 //8) Print all the numbers from 1 to 100 that are divisible by 3 or divisible by 5, but not divisible by 2.
         System.out.println("Home Task #2 part #8:");
+
         for (int i=1;i<=100;i++){
-            if ( (0 == (i%3)) && (0 == (i%5)) ){
-                System.out.println ("divisible by 3 and 5 --> " + i);
-            }
-            else if (0 == (i%5)) {
-                System.out.println ("divisible by 5 --> " + i);
-            }
-            else if (0 == (i%3)) {
-                System.out.println ("divisible by 3 --> " + i);
+            if  ( ( (0 == (i%3)) || (0 == (i%5)) ) && ( 0!= (i%2)) )  {
+                System.out.println ("divisible by 3 or 5 but not divisible by 2 --> " + i);
             }
         }
 //9) Create an array of any length and fill it with random integers.
@@ -167,8 +167,20 @@ public class AQA_Lesson_2 {
             System.out.print(array20[i] + ", ");
         }
         System.out.println("");
-        Arrays.sort(array20);
-        System.out.printf("After Sorting : %s",
-                Arrays.toString(array20));
+
+        boolean needSortOneMoreTime = true;
+        int needIteration = 0;
+        while (needSortOneMoreTime) {
+            needSortOneMoreTime = false;
+            for (int i = 1; i < array20.length; i++) {
+                if (array20[i] < array20[i - 1]) {
+                    swap(array20, i, i-1);
+                    needSortOneMoreTime = true;
+                    needIteration = 1 + needIteration;
+                }
+            }
+        }
+        System.out.println ("Need iterations to sort array -- > " + needIteration );
+        System.out.println("After Sorting:" + Arrays.toString(array20));
     }
 }
