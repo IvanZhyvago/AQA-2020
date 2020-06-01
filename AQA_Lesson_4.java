@@ -1,3 +1,5 @@
+import java.util.Random;
+
 //1. Create a class "Human". A human should have the following attributes: weight, age, first name, last name, height.
 //Requirements:
 //a) Create a class Human with all the required fields to store the information (variable types you could choose by yourself).
@@ -87,7 +89,7 @@ class Car {
     }
 }
 
-//4. 4. Create a class Calculator.
+//4. Create a class Calculator.
 // It should have three fields: double firstValue, double secondValue and String operation.
 // Create all required constructors to properly initialize your object.
 // Consider the case when user does not provide any parameters when creates a new object.
@@ -172,6 +174,112 @@ class S1mple {
 // Demonstrate in your class how we can use "this" keyword to refer to the object,
 // from which a constructor or a method was invoked.
 
+class Keyword {
+    boolean firstValue = true;
+    double secondValue = 44.44;
+    char thirdValue = 'y';
+
+    Keyword (boolean firstValue, double secondValue, char thirdValue) {
+        System.out.println ("constructor value --> " + firstValue);
+        System.out.println ("class value --> " + this.firstValue);
+        System.out.println ("constructor value --> " + secondValue);
+        System.out.println ("class value --> " + this.secondValue);
+        System.out.println ("constructor value --> " + thirdValue);
+        System.out.println ("class value --> " + this.thirdValue);
+    }
+}
+
+//7. Create a simple class with some fields.
+// Demonstrate in your class how we can use initialization blocks.
+
+class Initialization {
+    static int nextId;
+    int id;
+    String car;
+    double price;
+    {
+        System.out.println("Inside initialization block");
+        id = nextId;
+        nextId = nextId + 2 ;
+    }
+
+    static {
+        var randomNumber = new Random();
+        nextId = randomNumber.nextInt(10000);
+    }
+
+    Initialization (String car, double price) {
+        this.car = car;
+        this.price = price;
+    }
+
+    Initialization () {
+        this.car = "Shoes !!!";
+        this.price = 1;
+    }
+
+    public int getId () {
+        return this.id;
+    }
+
+}
+
+//8. Find the information about the order of initialation, when you create a new object of a class:
+//When constructors, initialization blocks are being executed. When fields are initialized with default values.
+
+class InitializationDefaultValues {
+    static int[] numArray = new int[10];
+    static {
+        for (int i = 0; i < numArray.length; i++) {
+            numArray[i] = (int) (100.0 * Math.random());
+        }
+    }
+
+    void getArray (){
+        for (int a : numArray) {
+            System.out.print(a + " ");
+        }
+        System.out.println();
+    }
+
+
+}
+
+//9. Write your own example of the recursive function.
+// You can find a lot of examples on the Internet.
+
+class RecursiveFunction {
+     void recursive (int number) {
+        if (number < 100){
+            System.out.println("Your number is: " + number + " but we need 100");
+            recursive(number + 1);
+        }
+        else {
+            System.out.println("We are finish, your number = 100");
+        }
+    }
+
+}
+
+//10. Create a simple class with overloaded methods.
+// Write another class to demonstrate the concept of methods overloading.
+
+class overloadedMethods {
+    void getCarPrice () {
+        System.out.println ("Google don't understand what a car you want !");
+    }
+    void getCarPrice (String name){
+        System.out.println ("Nice choice: " + name + " what colour ?");
+    }
+    void getCarPrice (String name, String color){
+        System.out.println ("Nice choice: " + name +" "+ color + " what year ?");
+    }
+    void getCarPrice (String name, String color, int year){
+        System.out.println ("Nice choice: " + name +" "+ color +" "+ year);
+        int price = year*100;
+        System.out.println ("Your price: " + price + "$");
+    }
+}
 
 public class AQA_Lesson_4 {
     public static void main(String[] args) {
@@ -196,6 +304,28 @@ public class AQA_Lesson_4 {
         //S1mple simple2 = new S1mple("Kyky", 10);
         S1mple simple3 = new S1mple("Kyky", 10, true);
 
+        System.out.println("Home Task #4 part #6:");
+        Keyword keyword = new Keyword (false,22.3,'n');
+
+        System.out.println("Home Task #4 part #7:");
+        Initialization initialization = new Initialization ();
+        Initialization initialization2 = new Initialization ("Mazerati",999999.99999);
+        System.out.println(initialization.getId());
+        System.out.println(initialization2.getId());
+
+        System.out.println("Home Task #4 part #8:");
+        new InitializationDefaultValues().getArray();
+        new InitializationDefaultValues().getArray();
+        new InitializationDefaultValues().getArray();
+
+        System.out.println("Home Task #4 part #9:");
+        new RecursiveFunction().recursive(90);
+
+        System.out.println("Home Task #4 part #10:");
+        new overloadedMethods().getCarPrice();
+        new overloadedMethods().getCarPrice("Ferrari");
+        new overloadedMethods().getCarPrice("Ford","Green");
+        new overloadedMethods().getCarPrice("Lexus", "black", 2020);
 
 
     }
