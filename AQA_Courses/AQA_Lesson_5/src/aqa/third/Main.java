@@ -56,7 +56,45 @@ public class Main {
         System.out.println(cP.name);
 
 //7) What is the difference between package-private access and protected access?
+// Private use only in Class
+// Package use in Class, Package, Same Package, Different package and can't use in World
 
+//8) Create a new class. Add 5 private fields. Add getter and setters to all the fields.
+// Class - GetterANdSetter
+
+// 9) What is the different between static and non-static field of a class?
+// Create an example to demostrate this concept.
+
+        DemonstrateStatic ds1 = new DemonstrateStatic ();
+        DemonstrateStatic ds2 = new DemonstrateStatic ();
+        DemonstrateStatic ds3 = new DemonstrateStatic ();
+        DemonstrateStatic ds4 = new DemonstrateStatic ();
+
+        System.out.println("Non Static - " + ds1.getNonStataticInt());
+        System.out.println("Non Static - " + ds2.getNonStataticInt());
+        System.out.println("Static - " + ds3.getStaticInt());
+        System.out.println("Static - " + ds4.getStaticInt());
+
+// 10) How can you create a constant in Java,
+// that will be available for everyone outside your class or package?
+
+// Answer: that will be available for everyone outside your class and package
+
+        aqa.third.DemonstrateConstant dc1 = new aqa.third.DemonstrateConstant();
+        aqa.second.DemonstrateConstant dc2 = new aqa.second.DemonstrateConstant();
+        System.out.println(dc1.DATE_OF_BIRTHDAY);
+        System.out.println(dc2.DATE_OF_BIRTHDAY);
+//11) Create a class with two different methods and two fields.
+// One of methods should be static, another - non-static.
+// The same thing should be done with class fields(first - static, second - non-static).
+// These two methods should change the corresponding fields of the class when called.
+// Create another class with main method to test your code.
+
+        MyClass myClass = new MyClass();
+        myClass.anotherChange(100);
+        myClass.change(70);
+        System.out.println(myClass.a);
+        System.out.println(myClass.b);
 
     }
 }
