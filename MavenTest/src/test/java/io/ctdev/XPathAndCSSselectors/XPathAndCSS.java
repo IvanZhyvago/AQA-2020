@@ -5,10 +5,10 @@ public class XPathAndCSS {
     // ======Xpath======
     private String XpathProfileTitle = "//p[starts-with(@class,'ownUserProfile_title')]";
     // can't find path and svg //svg[contains(@xmlns,'www.w3.org')] ???
+    //  -->  //*[name()='svg' and contains(@xmlns,'www.w3.org')]
     // CSS can -> svg[width*='105px']
     private String XpathCloseButton = "//button[contains(@class,'react-modal-close-btn')]";
     //don't work without contains ??? works - //button[@class = 'react-modal-close-btn']
-    // What the different between [@class, 'a'] and [@class = 'a'] ?
     private String XpathUploadAnImage = "//p[contains(@class,'dropZoneHover__')]";
     // What is >Upload an image? Can we find it ? -> it's a text find with functions text()
     private String XpathName = "//p[text()='Name']";

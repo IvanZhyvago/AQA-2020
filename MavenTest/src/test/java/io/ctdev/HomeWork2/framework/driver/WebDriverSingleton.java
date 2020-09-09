@@ -11,10 +11,6 @@ public class WebDriverSingleton {
 
     private static WebDriver driver;
 
-    private WebDriverSingleton() {
-
-    }
-
     public static WebDriver getDriver() {
         if (driver == null) {
             /*System.getProperty("browser")*/
@@ -34,7 +30,7 @@ public class WebDriverSingleton {
                     driver = new ChromeDriver();
                 }
             }
-            driver.manage().window().maximize();
+            //driver.manage().window().maximize();
         }
         return driver;
     }
