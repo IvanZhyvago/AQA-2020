@@ -2,6 +2,8 @@ package io.ctdev.XPathAndCSSselectors;
 
 public class XPathAndCSS {
 
+    //By.xpath("//span[text() = 'contains at least one lower character']/../mat-icon")).getAttribute("aria-hidden")
+    //*[contains(text(), 'Registration completed successfully. You can now log in.')]
     // ======Xpath======
     private String XpathProfileTitle = "//p[starts-with(@class,'ownUserProfile_title')]";
     // can't find path and svg //svg[contains(@xmlns,'www.w3.org')] ???

@@ -30,7 +30,7 @@ public class WebDriverSingleton {
                     driver = new ChromeDriver();
                 }
             }
-            //driver.manage().window().maximize();
+            driver.manage().window().maximize();
         }
         return driver;
     }
