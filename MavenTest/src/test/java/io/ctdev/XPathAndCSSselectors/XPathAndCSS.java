@@ -2,6 +2,8 @@ package io.ctdev.XPathAndCSSselectors;
 
 public class XPathAndCSS {
 
+    //input [@id = 'emailControl']/ancestor::div[contains(@class,'mat-form-field')]//mat-error
+
     //By.xpath("//span[text() = 'contains at least one lower character']/../mat-icon")).getAttribute("aria-hidden")
     //*[contains(text(), 'Registration completed successfully. You can now log in.')]
     // ======Xpath======
