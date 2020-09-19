@@ -3,6 +3,7 @@ package io.ctdev.checkActionsWithProducts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -15,7 +16,7 @@ public class AddProductToTheBasket extends SetData {
     private String actualTextResult;
     private String [] actualResult;
 
-    @BeforeTest
+    @BeforeClass
     public void addProductToBasket() {
         driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(), '"+nameProduct+"')]/../../../div/child::button"))).click();
         driver.findElement(By.xpath("//button[@aria-label='Show the shopping cart']")).click();
