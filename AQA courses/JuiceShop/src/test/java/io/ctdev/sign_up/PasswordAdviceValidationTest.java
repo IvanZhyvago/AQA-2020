@@ -1,6 +1,7 @@
 package io.ctdev.sign_up;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
@@ -24,12 +25,12 @@ public class PasswordAdviceValidationTest extends SetData {
     private String idRepeatPassword = "repeatPasswordControl";
 
 
-    public void passwordAdviceTest(String password) throws InterruptedException {
+    public void passwordAdviceTest(String password){
         driver.findElement(By.id(idPassword)).sendKeys(password);
         driver.findElement(By.id(idPassword)).sendKeys(Keys.TAB);
         driver.findElement(By.id(idRepeatPassword)).sendKeys(password);
         driver.findElement(By.id(idRepeatPassword)).sendKeys(Keys.TAB);
-        Thread.sleep(2000);
+
     }
 
     @BeforeMethod
@@ -46,53 +47,53 @@ public class PasswordAdviceValidationTest extends SetData {
 
 
     @Test
-    public void passwordAdviceOneLowerCharacterValidation () throws InterruptedException {
+    public void passwordAdviceOneLowerCharacterValidation () {
         passwordAdviceTest(password1);
-        actualResult = driver.findElement(By.xpath("//span[text() = 'contains at least one lower character']/../mat-icon")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'contains at least one lower character']/../mat-icon"))).getAttribute("innerText");
         Assert.assertEquals(actualResult, expectedResult1, "Actual result --> " + actualResult);
     }
 
     @Test
-    public void passwordAdviceOneUpperCharacterValidation () throws InterruptedException {
+    public void passwordAdviceOneUpperCharacterValidation () {
         passwordAdviceTest(password2);
-        actualResult = driver.findElement(By.xpath("//span[text() = 'contains at least one upper character']/../mat-icon")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'contains at least one upper character']/../mat-icon"))).getAttribute("innerText");
         Assert.assertEquals(actualResult, expectedResult1, "Actual result --> " + actualResult);
     }
 
     @Test
-    public void passwordAdviceOneDigitValidation () throws InterruptedException {
+    public void passwordAdviceOneDigitValidation () {
         passwordAdviceTest(password3);
-        actualResult = driver.findElement(By.xpath("//span[text() = 'contains at least one digit']/../mat-icon")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'contains at least one digit']/../mat-icon"))).getAttribute("innerText");
         Assert.assertEquals(actualResult, expectedResult1, "Actual result --> " + actualResult);
     }
 
     @Test
-    public void passwordAdviceOneSpecialValidation () throws InterruptedException {
+    public void passwordAdviceOneSpecialValidation () {
         passwordAdviceTest(password4);
-        actualResult = driver.findElement(By.xpath("//span[text() = 'contains at least one special character']/../mat-icon")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'contains at least one special character']/../mat-icon"))).getAttribute("innerText");
         Assert.assertEquals(actualResult, expectedResult1, "Actual result --> " + actualResult);
     }
 
     @Test
-    public void passwordEightCharactersValidation () throws InterruptedException {
+    public void passwordEightCharactersValidation () {
         passwordAdviceTest(password5);
-        actualResult = driver.findElement(By.xpath("//span[text() = 'contains at least 8 characters']/../mat-icon")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'contains at least 8 characters']/../mat-icon"))).getAttribute("innerText");
         Assert.assertEquals(actualResult, expectedResult1, "Actual result --> " + actualResult);
     }
 
     @Test
-    public void passwordCorrectValidation () throws InterruptedException {
+    public void passwordCorrectValidation () {
         softAssert = new SoftAssert();
         passwordAdviceTest(passwordCorrect);
-        actualResult = driver.findElement(By.xpath("//span[text() = 'contains at least 8 characters']/../mat-icon")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'contains at least 8 characters']/../mat-icon"))).getAttribute("innerText");
         softAssert.assertEquals(actualResult, expectedResult2, "Actual result --> " + actualResult);
-        actualResult = driver.findElement(By.xpath("//span[text() = 'contains at least one special character']/../mat-icon")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'contains at least one special character']/../mat-icon"))).getAttribute("innerText");
         softAssert.assertEquals(actualResult, expectedResult2, "Actual result --> " + actualResult);
-        actualResult = driver.findElement(By.xpath("//span[text() = 'contains at least one digit']/../mat-icon")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'contains at least one digit']/../mat-icon"))).getAttribute("innerText");
         softAssert.assertEquals(actualResult, expectedResult2, "Actual result --> " + actualResult);
-        actualResult = driver.findElement(By.xpath("//span[text() = 'contains at least one upper character']/../mat-icon")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'contains at least one upper character']/../mat-icon"))).getAttribute("innerText");
         softAssert.assertEquals(actualResult, expectedResult2, "Actual result --> " + actualResult);
-        actualResult = driver.findElement(By.xpath("//span[text() = 'contains at least one lower character']/../mat-icon")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'contains at least one lower character']/../mat-icon"))).getAttribute("innerText");
         softAssert.assertEquals(actualResult, expectedResult2, "Actual result --> " + actualResult);
         softAssert.assertAll();
     }

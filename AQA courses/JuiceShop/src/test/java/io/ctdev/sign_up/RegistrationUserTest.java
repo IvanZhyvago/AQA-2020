@@ -2,6 +2,7 @@ package io.ctdev.sign_up;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -28,7 +29,7 @@ public class RegistrationUserTest extends SetData {
     }
 
     @Test
-    public void userIsAbleToSignUp() throws InterruptedException {
+    public void userIsAbleToSignUp() {
         act = new Actions(driver);
         driver.findElement(By.id("navbarAccount")).click();
         System.out.println("Click Account button");
@@ -51,10 +52,9 @@ public class RegistrationUserTest extends SetData {
         System.out.println("Select question");
         driver.findElement(By.id("securityAnswerControl")).sendKeys(answer);
         System.out.println("Enter answer");
-        Thread.sleep(2000);
-        driver.findElement(By.id("registerButton")).click();
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.id("registerButton"))).click();
         System.out.println("Click Register");
-        actualResult = driver.findElement(By.xpath("//*[contains(text(), 'Registration completed successfully. You can now log in.')]")).getAttribute("innerText");
+        actualResult = driverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'Registration completed successfully. You can now log in.')]"))).getAttribute("innerText");
         Assert.assertEquals(actualResult,expectedResult, "Registration failed");
     }
 
