@@ -10,4 +10,7 @@ public interface TestConfig extends Config {
 
     @DefaultValue("http://18.217.145.6/")
     String webSite();
+
+    @DefaultValue("https://abbvieonecrm--preprod1v3.lightning.force.com/")
+    String salesForcePreProd1v3();
 }
