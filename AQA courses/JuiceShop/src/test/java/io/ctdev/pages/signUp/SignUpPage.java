@@ -101,7 +101,8 @@ public class SignUpPage extends AbstractPage {
     }
     public SignUpPage openListOfSecurityQuestion () {
         System.out.println("Open list of security questions");
-        driver.findElement(listOfSecurityQuestion).click();
+        //driver.findElement(listOfSecurityQuestion).click();
+        driverWait.until(ExpectedConditions.visibilityOfElementLocated(listOfSecurityQuestion)).click();
         return this;
     }
 

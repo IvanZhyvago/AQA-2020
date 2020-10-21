@@ -5,10 +5,14 @@ import org.aeonbits.owner.ConfigFactory;
 
 public interface TestConfig extends Config {
     TestConfig cfg = ConfigFactory.create(TestConfig.class);
+
+    @DefaultValue("true")
+    boolean remote();
+
     @DefaultValue("firefox")
     String browser();
 
-    @DefaultValue("http://18.217.145.6/")
+    @DefaultValue(" http://3.18.213.48")
     String webSite();
 
     @DefaultValue("https://abbvieonecrm--preprod1v3.lightning.force.com/")
